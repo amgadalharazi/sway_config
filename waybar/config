@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "cpu",
+        "pulseaudio/slider"
+    ],
+    "modules-center": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-right": [
+        "mpris",
+        "network",
+        "bluetooth",
+        "sway/language",
+        "battery",
+        "clock"
+    ],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "clock": {
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "sway/language": {
+        "format": "{}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    },
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": " {status}",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "network": {
+        "interface": "wlo1",
+        "interval": 1, // updates every 1 second
+        "format-wifi": "{bandwidthDownBits}↓ {bandwidthUpBits}↑ {essid} {signalStrength}% ",
+        "format-ethernet": "{bandwidthDownBits}↓ {bandwidthUpBits}↑ {ifname} 󰈀",
+        "format-disconnected": "",
+        "tooltip-format-wifi": "Interface: {ifname}\nSSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBits}\n↑ {bandwidthUpBits}",
+        "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBits}\n↑ {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+        "format-icons": [
+            "<span color='#69ff94'>▁</span>", // green
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▄</span>", // white
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>" // red
+        ]
+    },
+    "mpris": {
+        "format": "DEFAULT: {player_icon}",
+        "format-paused": "DEFAULT: {status_icon} ",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        // "ignored-players": ["firefox"]
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    }
+}

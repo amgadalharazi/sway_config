@@ -1,0 +1,3 @@
+[Default]
+save_dir=$HOME/Pictures
+after_save_command=wl-copy < "${file_path}"
